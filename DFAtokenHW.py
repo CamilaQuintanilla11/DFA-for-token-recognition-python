@@ -126,7 +126,7 @@ def myDfa(line):
                     estado = START
 
             case 3:
-                if current_char.isdigit() or current_char in "eE":
+                if current_char.isdigit() or current_char in "eE+-":
                     token += current_char
                     i += 1
 
