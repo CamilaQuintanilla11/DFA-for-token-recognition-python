@@ -144,4 +144,4 @@ def myDfa(line):
                     token = ""
                     estado = START
 
-lexerAritmetico("entrada.txt")
+lexerAritmetico("prueba.txt")
