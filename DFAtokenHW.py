@@ -126,7 +126,7 @@ def myDfa(line):
                     estado = START
 
             case 3:
-                if current_char.isdigit() or current_char in "eE+-":
+                if current_char.isdigit() or current_char in "eE":
                     token += current_char
                     i += 1
 
@@ -134,5 +134,13 @@ def myDfa(line):
                     print(f"{token}\tReal")
                     token = ""
                     estado = START
+    if estado == VARIABLE:
+        print(f"{token}\tVariable")
+
+    elif estado == ENTEROS:
+        print(f"{token}\tEntero")
+
+    elif estado == REALES:
+        print(f"{token}\tReal")
 
 lexerAritmetico("prueba.txt")
