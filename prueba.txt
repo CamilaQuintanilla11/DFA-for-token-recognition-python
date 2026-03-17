@@ -1,1 +1,11 @@
 a = 32.4 *(-8.6 - b)/6.1E-8
+a = 5 + 3
+x = y + z
+area = 3.14 * r * r
+resultado = (a + b) * (c - d)
+x = 10 + 3.5 * 2
+valor = 6.1E-8 + 3.2E5
+total = a * (b + 3.5) - c / 2
+y = x ^ 2 + 4
+a = 32.4 *(-8.6 - b)/6.1E-8
+resultado_final = var1 + var2 * var3 - var4 / var5
