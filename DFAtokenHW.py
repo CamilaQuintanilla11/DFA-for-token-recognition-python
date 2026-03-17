@@ -70,7 +70,7 @@ def myDfa(line):
 
                 elif current_char == "/":
                     token = current_char
-                    print(f"{token}\tDivisón")
+                    print(f"{token}\tDivisión")
                     i += 1
 
                 elif current_char == "^":
@@ -126,7 +126,7 @@ def myDfa(line):
                     estado = START
 
             case 3:
-                if current_char.isdigit() or current_char in "eE":
+                if current_char.isdigit() or current_char in "eE+-":
                     token += current_char
                     i += 1
 
