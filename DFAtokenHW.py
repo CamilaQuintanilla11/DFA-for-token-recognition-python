@@ -47,7 +47,7 @@ def myDfa(line):
                     token = current_char
                     estado = REALES
                     i += 1
-
+                    
                 elif current_char == "/" and i+1 < len(line) and line[i+1] == "/":
                     token = line[i:]
                     print (f"{token}\tComentario")
@@ -134,5 +134,13 @@ def myDfa(line):
                     print(f"{token}\tReal")
                     token = ""
                     estado = START
-                    
+    if estado == VARIABLE:
+        print(f"{token}\tVariable")
+
+    elif estado == ENTEROS:
+        print(f"{token}\tEntero")
+
+    elif estado == REALES:
+        print(f"{token}\tReal")
+
 lexerAritmetico("prueba.txt")
