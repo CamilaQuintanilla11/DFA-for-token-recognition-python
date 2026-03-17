@@ -47,6 +47,11 @@ def myDfa(line):
                     token = current_char
                     estado = REALES
                     i += 1
+                    
+                elif current_char == "/" and i+1 < len(line) and line[i+1] == "/":
+                    token = line[i:]
+                    print (f"{token}\tComentario")
+                    break
 
                 elif current_char == "=":
                     token = current_char
@@ -87,11 +92,6 @@ def myDfa(line):
                     token = current_char
                     print (f"{token}\tParéntesis que cierra")
                     i += 1
-
-                elif current_char == "/" and i+1 < len(line) and line[i+1] == "/":
-                    token = line[i:]
-                    print (f"{token}\tComentario")
-                    break
 
                 else:
                     i += 1
