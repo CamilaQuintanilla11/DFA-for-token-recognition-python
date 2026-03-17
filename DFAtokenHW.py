@@ -12,3 +12,134 @@ def lexerAritmetico(archivo):
     except FileNotFoundError:
         print("no se leyó el archivo correctamente")
 
+def myDfa(line):
+    START = 0
+    VARIABLE = 1
+    ENTEROS = 2
+    REALES = 3
+    OPERADORES = 4
+    SIMBOLOS = 5
+    COMENTARIOS = 6
+
+    estado = START 
+    token = ""
+    i = 0
+
+    while i < len(line):
+        current_char = line[i]
+
+        match estado:
+            case 0:
+                if current_char.isspace():
+                    i += 1
+
+                elif current_char.isalpha():
+                    token = current_char
+                    estado = VARIABLE
+                    i += 1
+
+                elif current_char.isdigit():
+                    token = current_char
+                    estado = ENTEROS
+                    i += 1
+
+                elif current_char == ".":
+                    token = current_char
+                    estado = REALES
+                    i += 1
+
+                elif current_char == "=":
+                    token = current_char
+                    estado = OPERADORES
+                    print(f"{token}\tAsignación")
+                    i += 1
+
+                elif current_char == "+":
+                    token = current_char
+                    estado = OPERADORES
+                    print (f"{token}\tSuma")
+                    i += 1
+
+                elif current_char == "-":
+                    token = current_char
+                    estado = OPERADORES
+                    print(f"{token}\tResta")
+                    i += 1
+
+                elif current_char == "*":
+                    token = current_char
+                    estado = OPERADORES
+                    print (f"{token}\tMultiplicación")
+                    i += 1
+
+                elif current_char == "/":
+                    token = current_char
+                    estado = OPERADORES
+                    print(f"{token}\tDivisón")
+                    i += 1
+
+                elif current_char == "^":
+                    token = current_char
+                    estado = OPERADORES
+                    print (f"{token}\tPotencia")
+                    i += 1
+
+                elif current_char == "(":
+                    token = current_char
+                    estado = SIMBOLOS
+                    print (f"{token}\tParéntesis que abre")
+                    i += 1
+            
+                elif current_char == ")":
+                    token = current_char
+                    estado = SIMBOLOS
+                    print (f"{token}\tParéntesis que cierra")
+                    i += 1
+
+                elif current_char == "/" and i+1 < len(line) and line[i+1] == "/":
+                    token = line[i:]
+                    estado = COMENTARIOS
+                    print (f"{token}\tComentario")
+                    break
+
+                else:
+                    i += 1
+
+            case 1:
+                if current_char.isalnum() or current_char == "_":
+                    token += current_char
+                    i += 1
+
+                else: 
+                    print(f"{token}\tVariable")
+                    token = ""
+                    estado = START
+
+            case 2:
+                if current_char.isdigit():
+                    token += current_char
+                    i += 1
+                
+                elif current_char == ".":
+                    token += current_char
+                    estado = REALES
+                    i += 1
+
+                elif current_char == "eE":
+                    token += current_char
+                    estado = REALES
+                    i += 1
+                else:
+                    print(f"{token}\tEntero")
+                    token = ""
+                    estado = START
+
+            case 3:
+                if current_char.isdigit() or current_char in "eE":
+                    token += current_char
+                    i += 1
+
+                else:
+                    print(f"{token}\tReal")
+                    token = ""
+                    estado = START
