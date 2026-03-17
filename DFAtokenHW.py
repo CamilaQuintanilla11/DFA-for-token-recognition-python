@@ -17,9 +17,6 @@ def myDfa(line):
     VARIABLE = 1
     ENTEROS = 2
     REALES = 3
-    OPERADORES = 4
-    SIMBOLOS = 5
-    COMENTARIOS = 6
 
     estado = START 
     token = ""
