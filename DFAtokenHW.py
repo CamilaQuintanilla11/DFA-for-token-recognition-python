@@ -50,55 +50,46 @@ def myDfa(line):
 
                 elif current_char == "=":
                     token = current_char
-                    estado = OPERADORES
                     print(f"{token}\tAsignación")
                     i += 1
 
                 elif current_char == "+":
                     token = current_char
-                    estado = OPERADORES
                     print (f"{token}\tSuma")
                     i += 1
 
                 elif current_char == "-":
                     token = current_char
-                    estado = OPERADORES
                     print(f"{token}\tResta")
                     i += 1
 
                 elif current_char == "*":
                     token = current_char
-                    estado = OPERADORES
                     print (f"{token}\tMultiplicación")
                     i += 1
 
                 elif current_char == "/":
                     token = current_char
-                    estado = OPERADORES
                     print(f"{token}\tDivisón")
                     i += 1
 
                 elif current_char == "^":
                     token = current_char
-                    estado = OPERADORES
                     print (f"{token}\tPotencia")
                     i += 1
 
                 elif current_char == "(":
                     token = current_char
-                    estado = SIMBOLOS
                     print (f"{token}\tParéntesis que abre")
                     i += 1
             
                 elif current_char == ")":
                     token = current_char
-                    estado = SIMBOLOS
                     print (f"{token}\tParéntesis que cierra")
                     i += 1
 
                 elif current_char == "/" and i+1 < len(line) and line[i+1] == "/":
                     token = line[i:]
-                    estado = COMENTARIOS
                     print (f"{token}\tComentario")
                     break
 
@@ -125,7 +116,7 @@ def myDfa(line):
                     estado = REALES
                     i += 1
 
-                elif current_char == "eE":
+                elif current_char in "eE":
                     token += current_char
                     estado = REALES
                     i += 1
