@@ -1,6 +1,6 @@
 def lexerAritmetico(archivo):
     try: 
-        with open (archivo) as f:
+        with open (archivo, "r") as f:
             for line in f: 
                 line = line.strip()
 
@@ -143,3 +143,5 @@ def myDfa(line):
                     print(f"{token}\tReal")
                     token = ""
                     estado = START
+
+lexerAritmetico("entrada.txt")
