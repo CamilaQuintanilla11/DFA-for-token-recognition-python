@@ -1,7 +1,14 @@
 def lexerAritmetico(archivo):
-    with open (archivo) as f:
-        for line in f: 
-            line = line.strip()
+    try: 
+        with open (archivo) as f:
+            for line in f: 
+                line = line.strip()
 
-            if line == "":
-                continue
+                if line == "":
+                    continue
+
+                myDfa(line)
+
+    except FileNotFoundError:
+        print("no se leyó el archivo correctamente")
+
