@@ -139,10 +139,14 @@ def myDfa(line):
 
                 elif current_char == ".":
                     token = current_char
-                    print(f"{token}\Error. Token no válido")
-                    token = ""
-                    estado = START
                     i += 1
+                    while i < len(line) and not line[i].isspace():
+                        token += line[i]
+                        i += 1
+
+                        print(f"{token}\tError. Token no válido")
+                        token = ""
+                        estado = START
 
                 else:
                     print(f"{token}\tReal")
