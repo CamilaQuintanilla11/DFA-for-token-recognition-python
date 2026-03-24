@@ -140,4 +140,4 @@ def myDfa(line):
     elif estado == REALES:
         print(f"{token}\tReal")
 
-lexerAritmetico("prueba.txt")
+lexerAritmetico("pruebadificil.txt")
