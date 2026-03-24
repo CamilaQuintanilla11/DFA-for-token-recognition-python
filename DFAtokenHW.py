@@ -152,6 +152,7 @@ def myDfa(line):
                     print(f"{token}\tReal")
                     token = ""
                     estado = START
+                    
     if estado == VARIABLE:
         print(f"{token}\tVariable")
 
