@@ -17,6 +17,7 @@ def myDfa(line):
     VARIABLE = 1
     ENTEROS = 2
     REALES = 3
+    ERROR = 4
 
     estado = START 
     token = ""
@@ -91,6 +92,7 @@ def myDfa(line):
                     i += 1
 
                 else:
+                    print(f"{current_char}\tError. Token no válido")
                     i += 1
 
             case 1:
@@ -117,6 +119,14 @@ def myDfa(line):
                     token += current_char
                     estado = REALES
                     i += 1
+
+                elif current_char.isalpha():
+                    token += current_char
+                    print(f"{token}\tError. Token no válido.")
+                    token = ""
+                    estado = START
+                    i += 1
+
                 else:
                     print(f"{token}\tEntero")
                     token = ""
@@ -125,6 +135,13 @@ def myDfa(line):
             case 3:
                 if current_char.isdigit() or current_char in "eE+-":
                     token += current_char
+                    i += 1
+
+                elif current_char == ".":
+                    token = current_char
+                    print(f"{token}\Error. Token no válido")
+                    token = ""
+                    estado = START
                     i += 1
 
                 else:
